@@ -133,9 +133,11 @@
             <button id="checkShen">查神宫组合</button>
         </div>
 
-        <div class="result" id="result">
-            查询结果：
+        <div class="form-group">
+            <label>查询结果：</label> 
         </div>
+
+        <div class="result" id="result"></div>
     </div>
 
     <script>
@@ -247,7 +249,7 @@
             const result = combinations[key] || "未定义的组合";
     
             // 显示结果
-            resultDiv.innerHTML = `查询结果：<br>${result}`;
+            resultDiv.innerHTML = `${result}`;
         });
     </script>
     
