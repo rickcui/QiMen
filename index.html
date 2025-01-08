@@ -4,8 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>奇门查询系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            flex: 1;
+            font-size: 16px;
+            color: #555;
+        }
+        .form-group select {
+            flex: 2;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .form-group button {
+            margin-left: 10px;
+            padding: 8px 12px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>奇门查询系统</h1>
+    <div class="container">
+        <h1>奇门查询系统</h1>
+        <div class="form-group">
+            <label for="tianpan">天盘：</label>
+            <select id="tianpan">
+                <option value="戊">戊</option>
+                <option value="乙">乙</option>
+                <option value="丙">丙</option>
+                <option value="丁">丁</option>
+                <option value="己">己</option>
+                <option value="庚">庚</option>
+                <option value="辛">辛</option>
+                <option value="壬">壬</option>
+                <option value="癸">癸</option>
+            </select>
+            <button id="checkTen">查十干克应</button>
+        </div>
+
+        <div class="form-group">
+            <label for="dipan">地盘：</label>
+            <select id="dipan">
+                <option value="戊">戊</option>
+                <option value="乙">乙</option>
+                <option value="丙">丙</option>
+                <option value="丁">丁</option>
+                <option value="己">己</option>
+                <option value="庚">庚</option>
+                <option value="辛">辛</option>
+                <option value="壬">壬</option>
+                <option value="癸">癸</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tianpan-bashen">天盘八神：</label>
+            <select id="tianpan-bashen">
+                <option value="值符">值符</option>
+                <option value="螣蛇">螣蛇</option>
+                <option value="太阴">太阴</option>
+                <option value="六合">六合</option>
+                <option value="白虎">白虎</option>
+                <option value="玄武">玄武</option>
+                <option value="九地">九地</option>
+                <option value="九天">九天</option>
+            </select>
+            <button>查神宫组合</button>
+        </div>
+
+        <div class="form-group">
+            <label for="dipan-bamen">地盘八门：</label>
+            <select id="dipan-bamen">
+                <option value="坎休门">坎休门</option>
+                <option value="坤死门">坤死门</option>
+                <option value="震伤门">震伤门</option>
+                <option value="巽杜门">巽杜门</option>
+                <option value="乾开门">乾开门</option>
+                <option value="兑惊门">兑惊门</option>
+                <option value="艮生门">艮生门</option>
+                <option value="离景门">离景门</option>
+            </select>
+        </div>
+
+        <div class="result" id="result">
+            查询结果：
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('checkTen').addEventListener('click', function() {
+            const tianpan = document.getElementById('tianpan').value;
+            const dipan = document.getElementById('dipan').value;
+            const resultDiv = document.getElementById('result');
+    
+            // 定义组合逻辑的假数据（请根据实际需求填充此数据）
+            const combinations = {
+                "戊+戊": "伏吟，凡事不利，道路闭塞，以守为好。",
+                "戊+乙": "结果2",
+                "戊+丙": "结果3",
+                "丁+壬": "结果4",
+                "乙+癸": "结果5",
+                // 添加更多组合和结果
+            };
+    
+            // 生成组合键
+            const key = `${tianpan}+${dipan}`;
+    
+            // 根据组合键获取结果
+            const result = combinations[key] || "未定义的组合";
+    
+            // 显示结果
+            resultDiv.textContent = `查询结果：${result}`;
+        });
+    </script>
+    
 </body>
 </html>
+
