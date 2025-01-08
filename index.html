@@ -40,7 +40,7 @@
             font-size: 16px;
         }
         .form-group button {
-            margin-left: 10px;
+            margin-left: auto;
             padding: 8px 12px;
             font-size: 16px;
             background-color: #4CAF50;
@@ -58,7 +58,7 @@
             color: #333;            
             border-top: 1px solid #ccc; /* 增加一道横线 */
             padding-top: 10px; /* 添加内边距让文字与横线之间有些间距 */
-        }
+        }        
     </style>
 </head>
 <body>
@@ -92,7 +92,10 @@
                 <option value="辛">辛</option>
                 <option value="壬">壬</option>
                 <option value="癸">癸</option>
-            </select>
+            </select>               
+        </div>
+
+        <div class="form-group" >
             <button id="checkTen">查十干克应</button>
         </div>
 
@@ -123,6 +126,10 @@
                 <option value="艮生门">艮生门</option>
                 <option value="离景门">离景门</option>
             </select>
+            
+        </div>
+
+        <div class="form-group">
             <button id="checkShen">查神宫组合</button>
         </div>
 
@@ -132,12 +139,12 @@
     </div>
 
     <script>
+        //查询八门克应
         document.getElementById('checkTen').addEventListener('click', function() {
             const tianpan = document.getElementById('tianpan').value;
             const dipan = document.getElementById('dipan').value;
-            const resultDiv = document.getElementById('result');
-    
-            // 定义组合逻辑的假数据（请根据实际需求填充此数据）
+            const resultDiv = document.getElementById('result');    
+            //各种组合数据
             const combinations = {
                 //天盘戊
                 "戊+戊": "伏吟，凡事不利，道路闭塞，以守为好。",
@@ -243,14 +250,14 @@
             resultDiv.innerHTML = `查询结果：<br>${result}`;
         });
     </script>
-
+    
     <script>
+        //查询神宫组合
         document.getElementById('checkShen').addEventListener('click', function() {
             const tianpanbashen = document.getElementById('tianpan-bashen').value;
             const dipanbamen = document.getElementById('dipan-bamen').value;
             const resultDiv = document.getElementById('result');
-    
-            // 定义组合逻辑的假数据（请根据实际需求填充此数据）
+            //各种组合数据
             const combinations = {
                 "值符+坎休门": "klklklklklklk",
                 "戊+乙": "结果2",
